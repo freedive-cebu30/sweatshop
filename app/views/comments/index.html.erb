@@ -1,0 +1,30 @@
+<%= render 'shared/company' ,:comapny => @company %>
+<%= link_to '社会人評価をする', new_company_society_evaluation_path(@company.id),:class=>'btn large primary' %>
+<%= link_to '学生評価をする', new_company_student_evaluation_path(@company.id),:class=>'btn large success' %>
+<%= link_to 'コメントをする', new_company_comment_path(@company.id),:class=>'btn large info' %>
+<ul class="tabs">
+	<li>
+		<%= link_to '社会人評価', company_society_evaluations_path(@company.id),:class=>'btn default' %>
+	</li>
+	<li>
+		<%= link_to '学生評価', company_student_evaluations_path(@company.id),:class=>'btn default' %>
+	</li>
+	<li>
+		<%= link_to 'コメント', company_comments_path(@company.id),:class=>'btn default' %>
+	</li>
+</ul>
+<h3>コメント</h3>
+<% @comments.each do |comment| %>
+	<table class="zebra-striped">
+		<tr>
+			<td>
+				<%= comment.name %>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<%= comment.description %>
+			</td>
+		</tr>
+	</table>
+<% end %>

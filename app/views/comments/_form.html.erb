@@ -1,0 +1,25 @@
+<%= simple_form_for(@comment) do |f| %>
+  <% if @comment.errors.any? %>
+    <div class="alert-message block-message warning">
+      <ul>
+      <% @comment.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+	<div class="row">
+		<div class="clearfix">
+			<%= f.label :name ,:class=> "span1" %>
+			<%= f.text_field :name ,:class=> "span6" %>
+		</div>
+		<div class="clearfix">
+			<%= f.label :description ,:class=> "span1" %>
+			<%= f.text_area :description ,{:cols => 20,:rows=> 10,:class=> "span6"} %>
+		</div>
+	</div>
+  <input type="hidden" name="comment[company_id]" value=<%= @company_id %> size="30" type="text" />
+  <div class="actions">
+    <%= f.submit "登録",:class=>'btn primary' %>
+  </div>
+<% end %>

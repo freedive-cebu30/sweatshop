@@ -1,0 +1,36 @@
+<div id="company_search">
+	<%= simple_form_for [@search] do |f| %>
+	<%= f.text_field :name_contains ,:class => 'xlarge' %>
+	<%= f.submit "検索",:class => 'btn primary'%>
+	<% end %>
+</div>
+<div class="row">
+	<div class="span12">
+		<% unless @companies.blank? %>
+			<%= paginate @companies %>
+		<% else %>
+			検索項目はありません
+		<% end %>
+	</div>
+	<div class="span3">
+		<%= link_to '登録画面', new_company_path ,:class => 'btn large primary'%>
+	</div>
+</div>
+<table class="zebra-striped">
+  <tr>
+    <th>社名</th>
+    <th>住所</th>
+    <th>ホームページURL</th>
+    <th>詳細</th>
+  </tr>
+
+<% @companies.each do |company| %>
+  <tr>
+    <td><%= company.name %></td>
+    <td><%= company.address %></td>
+    <td><a href="<%= company.url %>" target=_blank><%= company.url %></a></td>
+    <td><%= link_to '詳細', company_society_evaluations_path(company.id) %></td>
+  </tr>
+<% end %>
+</table>
+

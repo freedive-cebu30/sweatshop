@@ -1,0 +1,28 @@
+<%= simple_form_for(@company) do |f| %>
+  <% if @company.errors.any? %>
+    <div class="alert-message block-message warning">
+      <ul>
+      <% @company.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+	<div class="row">
+		<div class="clearfix">
+			<%= f.label :name %>
+			<%= f.text_field :name,:class=> "span7" %>
+		</div>
+		<div class="clearfix">
+			<%= f.label :address %>
+			<%= f.text_field :address,:class=> "span7" %>
+		</div>
+		<div class="clearfix">
+			<%= f.label :url %>
+			<%= f.text_field :url,:class=> "span7" %>
+		</div>
+	</div>
+	<div class="actions">
+		<%= f.submit "登録",:class=>'btn primary' %>
+	</div>
+<% end %>

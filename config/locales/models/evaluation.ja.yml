@@ -1,0 +1,25 @@
+ja:
+  activerecord:
+    models:
+      evaluation: "評価"
+    attributes:
+      evaluation:
+        age: "年齢"
+        position: "地位(部下の人数)"
+        post: "部署"
+        income: "年収"
+        working_hours: "労働時間/日"
+        holiday_days: "休日/月"
+        overtime_pay: "残業代"
+        illegality: "違法行為"
+        interview_attitude: "面接態度"
+        resume: "履歴書"
+        stress_interview: "圧迫面接"
+        sexual_harassment: "セクハラ"
+        interviewer_count: "面接回数"
+        promise: "約束"
+        question1: "会社からの質問1"
+        question2: "会社からの質問2"
+        question3: "会社からの質問3"
+        enjoyment: "楽しめてる？"
+        learn: "学べてる？"

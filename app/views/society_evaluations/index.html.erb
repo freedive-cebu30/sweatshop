@@ -1,0 +1,376 @@
+<%= render 'shared/company' ,:comapny => @company %>
+<%= link_to '社会人評価をする', new_company_society_evaluation_path(@company.id),:class=>'btn large primary' %>
+<%= link_to '学生評価をする', new_company_student_evaluation_path(@company.id),:class=>'btn large success' %>
+<%= link_to 'コメントをする', new_company_comment_path(@company.id),:class=>'btn large info' %>
+<ul class="tabs">
+	<li>
+		<%= link_to '社会人評価', company_society_evaluations_path(@company.id),:class=>'btn default' %>
+	</li>
+	<li>
+		<%= link_to '学生評価', company_student_evaluations_path(@company.id),:class=>'btn default' %>
+	</li>
+	<li>
+		<%= link_to 'コメント', company_comments_path(@company.id),:class=>'btn default' %>
+	</li>
+</ul>
+<h3>社会人評価</h3>
+<% @society_evaluations.each do |evaluation| %>
+	<table class="zebra-striped">
+		<tr>
+			<td>年齢</td>
+			<td><%= @evaluation_age[0] %></td>
+			<td><%= evaluation.age1 %></td>
+			<td><%= @evaluation_age[1] %></td>
+			<td><%= evaluation.age2 %></td>
+			<td><%= @evaluation_age[2] %></td>
+			<td><%= evaluation.age3 %></td>
+			<td><%= @evaluation_age[3] %></td>
+			<td><%= evaluation.age4 %></td>
+			<td><%= @evaluation_age[4] %></td>
+			<td><%= evaluation.age5 %></td>
+			<td><%= @evaluation_age[5] %></td>
+			<td><%= evaluation.age6 %></td>
+			<td><%= @evaluation_age[6] %></td>
+			<td><%= evaluation.age7 %></td>
+			<td><%= @evaluation_age[7] %></td>
+			<td><%= evaluation.age8 %></td>
+			<td><%= @evaluation_age[8] %></td>
+			<td><%= evaluation.age9 %></td>
+		</tr>
+		<tr>
+			<td>楽しめてる？</td>
+			<td><%= @evaluation_enjoyment[0] %></td>
+			<td><%= evaluation.enjoyment1 %></td>
+			<td><%= @evaluation_enjoyment[1] %></td>
+			<td><%= evaluation.enjoyment2 %></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>学べてる？</td>
+			<td><%= @evaluation_learn[0] %></td>
+			<td><%= evaluation.learn1 %></td>
+			<td><%= @evaluation_learn[1] %></td>
+			<td><%= evaluation.learn2 %></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>地位(部下の人数)</td>
+			<td><%= @evaluation_position[0] %></td>
+			<td><%= evaluation.position1 %></td>
+			<td><%= @evaluation_position[1] %></td>
+			<td><%= evaluation.position2 %></td>
+			<td><%= @evaluation_position[2] %></td>
+			<td><%= evaluation.position3 %></td>
+			<td><%= @evaluation_position[3] %></td>
+			<td><%= evaluation.position4 %></td>
+			<td><%= @evaluation_position[4] %></td>
+			<td><%= evaluation.position5 %></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>部署</td>
+			<td><%= @evaluation_post[0] %></td>
+			<td><%= evaluation.post1 %></td>
+			<td><%= @evaluation_post[1] %></td>
+			<td><%= evaluation.post2 %></td>
+			<td><%= @evaluation_post[2] %></td>
+			<td><%= evaluation.post3 %></td>
+			<td><%= @evaluation_post[3] %></td>
+			<td><%= evaluation.post4 %></td>
+			<td><%= @evaluation_post[4] %></td>
+			<td><%= evaluation.post5 %></td>
+			<td><%= @evaluation_post[5] %></td>
+			<td><%= evaluation.post6 %></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>年収</td>
+			<td><%= @evaluation_income[0] %></td>
+			<td><%= evaluation.income1 %></td>
+			<td><%= @evaluation_income[1] %></td>
+			<td><%= evaluation.income2 %></td>
+			<td><%= @evaluation_income[2] %></td>
+			<td><%= evaluation.income3 %></td>
+			<td><%= @evaluation_income[3] %></td>
+			<td><%= evaluation.income4 %></td>
+			<td><%= @evaluation_income[4] %></td>
+			<td><%= evaluation.income5 %></td>
+			<td><%= @evaluation_income[5] %></td>
+			<td><%= evaluation.income6 %></td>
+			<td><%= @evaluation_income[6] %></td>
+			<td><%= evaluation.income7 %></td>
+			<td><%= @evaluation_income[7] %></td>
+			<td><%= evaluation.income8 %></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>労働時間/日</td>
+			<td><%= @evaluation_working_hours[0] %></td>
+			<td><%= evaluation.working_hours1 %></td>
+			<td><%= @evaluation_working_hours[1] %></td>
+			<td><%= evaluation.working_hours2 %></td>
+			<td><%= @evaluation_working_hours[2] %></td>
+			<td><%= evaluation.working_hours3 %></td>
+			<td><%= @evaluation_working_hours[3] %></td>
+			<td><%= evaluation.working_hours4 %></td>
+			<td><%= @evaluation_working_hours[4] %></td>
+			<td><%= evaluation.working_hours5 %></td>
+			<td><%= @evaluation_working_hours[5] %></td>
+			<td><%= evaluation.working_hours6 %></td>
+			<td><%= @evaluation_working_hours[6] %></td>
+			<td><%= evaluation.working_hours7 %></td>
+			<td><%= @evaluation_working_hours[7] %></td>
+			<td><%= evaluation.working_hours8 %></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>休日/月</td>
+			<td><%= @evaluation_holiday_days[0] %></td>
+			<td><%= evaluation.holiday_days1 %></td>
+			<td><%= @evaluation_holiday_days[1] %></td>
+			<td><%= evaluation.holiday_days2 %></td>
+			<td><%= @evaluation_holiday_days[2] %></td>
+			<td><%= evaluation.holiday_days3 %></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>残業代</td>
+			<td><%= @evaluation_overtime_pay[0] %></td>
+			<td><%= evaluation.overtime_pay1 %></td>
+			<td><%= @evaluation_overtime_pay[1] %></td>
+			<td><%= evaluation.overtime_pay2 %></td>
+			<td><%= @evaluation_overtime_pay[2] %></td>
+			<td><%= evaluation.overtime_pay3 %></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>違法行為</td>
+			<td><%= @evaluation_illegality[0] %></td>
+			<td><%= evaluation.illegality1 %></td>
+			<td><%= @evaluation_illegality[1] %></td>
+			<td><%= evaluation.illegality2 %></td>
+			<td><%= @evaluation_illegality[2] %></td>
+			<td><%= evaluation.illegality3 %></td>
+			<td><%= @evaluation_illegality[3] %></td>
+			<td><%= evaluation.illegality4 %></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>面接態度</td>
+			<td><%= @evaluation_interview_attitude[0] %></td>
+			<td><%= evaluation.interview_attitude1 %></td>
+			<td><%= @evaluation_interview_attitude[1] %></td>
+			<td><%= evaluation.interview_attitude2 %></td>
+			<td><%= @evaluation_interview_attitude[2] %></td>
+			<td><%= evaluation.interview_attitude3 %></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>履歴書</td>
+			<td><%= @evaluation_resume[0] %></td>
+			<td><%= evaluation.resume1 %></td>
+			<td><%= @evaluation_resume[1] %></td>
+			<td><%= evaluation.resume2 %></td>
+			<td><%= @evaluation_resume[2] %></td>
+			<td><%= evaluation.resume3 %></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>圧迫面接</td>
+			<td><%= @evaluation_stress_interview[0] %></td>
+			<td><%= evaluation.stress_interview1 %></td>
+			<td><%= @evaluation_stress_interview[1] %></td>
+			<td><%= evaluation.stress_interview2 %></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>セクハラ</td>
+			<td><%= @evaluation_sexual_harassment[0] %></td>
+			<td><%= evaluation.sexual_harassment1 %></td>
+			<td><%= @evaluation_sexual_harassment[1] %></td>
+			<td><%= evaluation.sexual_harassment2 %></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>面接回数</td>
+			<td><%= @evaluation_interviewer_count[0] %></td>
+			<td><%= evaluation.interviewer_count1 %></td>
+			<td><%= @evaluation_interviewer_count[1] %></td>
+			<td><%= evaluation.interviewer_count2 %></td>
+			<td><%= @evaluation_interviewer_count[2] %></td>
+			<td><%= evaluation.interviewer_count3 %></td>
+			<td><%= @evaluation_interviewer_count[3] %></td>
+			<td><%= evaluation.interviewer_count4 %></td>
+			<td><%= @evaluation_interviewer_count[4] %></td>
+			<td><%= evaluation.interviewer_count5 %></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>約束</td>
+			<td><%= @evaluation_promise[0] %></td>
+			<td><%= evaluation.promise1 %></td>
+			<td><%= @evaluation_promise[1] %></td>
+			<td><%= evaluation.promise2 %></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+	</table>
+<% end %>
+<h3>企業からの質問</h3>
+<table class="zebra-striped">
+	<% @questions.each do |question| %>
+		<% unless question.question1.blank? %>
+			<tr>
+				<td><%= question.question1 %></td>
+			</tr>
+		<% end%>
+		<% unless question.question2.blank? %>
+			<tr>
+				<td><%= question.question2 %></td>
+			</tr>
+		<% end%>
+		<% unless question.question3.blank? %>
+			<tr>
+				<td><%= question.question3 %></td>
+			</tr>
+		<% end%>
+	<% end %>
+</table>

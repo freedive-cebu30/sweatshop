@@ -1,0 +1,59 @@
+<h1>Listing evaluations</h1>
+
+<table>
+  <tr>
+    <th>Age</th>
+    <th>Position</th>
+    <th>Post</th>
+    <th>Income</th>
+    <th>Working hours</th>
+    <th>Holiday days</th>
+    <th>Overtime pay</th>
+    <th>Illegality</th>
+    <th>Interview attitude</th>
+    <th>Resume</th>
+    <th>Stress interview</th>
+    <th>Sexual harassment</th>
+    <th>Interviewer count</th>
+    <th>Promise</th>
+    <th>Question1</th>
+    <th>Question2</th>
+    <th>Question3</th>
+    <th>Job type</th>
+    <th>Deleted</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @evaluations.each do |evaluation| %>
+  <tr>
+    <td><%= evaluation.age %></td>
+    <td><%= evaluation.position %></td>
+    <td><%= evaluation.post %></td>
+    <td><%= evaluation.income %></td>
+    <td><%= evaluation.working_hours %></td>
+    <td><%= evaluation.holiday_days %></td>
+    <td><%= evaluation.overtime_pay %></td>
+    <td><%= evaluation.illegality %></td>
+    <td><%= evaluation.interview_attitude %></td>
+    <td><%= evaluation.resume %></td>
+    <td><%= evaluation.stress_interview %></td>
+    <td><%= evaluation.sexual_harassment %></td>
+    <td><%= evaluation.interviewer_count %></td>
+    <td><%= evaluation.promise %></td>
+    <td><%= evaluation.question1 %></td>
+    <td><%= evaluation.question2 %></td>
+    <td><%= evaluation.question3 %></td>
+    <td><%= evaluation.job_type %></td>
+    <td><%= evaluation.deleted %></td>
+    <td><%= link_to 'Show', evaluation %></td>
+    <td><%= link_to 'Edit', edit_evaluation_path(evaluation) %></td>
+    <td><%= link_to 'Destroy', evaluation, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Evaluation', new_evaluation_path %>

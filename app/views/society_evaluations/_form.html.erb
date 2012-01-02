@@ -1,0 +1,223 @@
+<%= form_for(@evaluation) do |f| %>
+  <% if @evaluation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@evaluation.errors.count, "error") %> prohibited this evaluation from being saved:</h2>
+
+      <ul>
+      <% @evaluation.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+		<table class="zebra-striped">
+			<tr>
+				<td>
+					<%= f.label :age %>
+				</td>
+				<td>
+					<label>20歳未満<%= f.radio_button :age, Evaluation::AGE.index("20歳未満")%></label>
+					<label>20-25歳<%= f.radio_button :age, Evaluation::AGE.index("20-25歳"), :checked => true %></label>
+					<label>26-30歳<%= f.radio_button :age, Evaluation::AGE.index("26-30歳") %></label>
+					<label>31-35歳<%= f.radio_button :age, Evaluation::AGE.index("31-35歳") %></label>
+					<label>36-40歳<%= f.radio_button :age, Evaluation::AGE.index("36-40歳") %></label>
+					<label>41-45歳<%= f.radio_button :age, Evaluation::AGE.index("41-45歳") %></label>
+					<label>46-50歳<%= f.radio_button :age, Evaluation::AGE.index("46-50歳") %></label>
+					<label>51-60歳<%= f.radio_button :age, Evaluation::AGE.index("51-60歳") %></label>
+					<label>61歳以上<%= f.radio_button :age, Evaluation::AGE.index("61歳以上") %></label>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<%= f.label :enjoyment %>
+				</td>
+				<td>
+					<label>楽しい<%= f.radio_button :enjoyment, Evaluation::ENJOYMENT.index("楽しい"), :checked=>true %></label>
+					<label>楽しくない<%= f.radio_button :enjoyment, Evaluation::ENJOYMENT.index("楽しくない") %></label>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<%= f.label :learn %>
+				</td>
+				<td>
+					<label>学べてる<%= f.radio_button :learn, Evaluation::LEARN.index("学べてる"), :checked=>true %></label>
+					<label>学べていない<%= f.radio_button :learn, Evaluation::LEARN.index("学べていない") %></label>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<%= f.label :position %>
+				</td>
+				<td>
+					<label>部下0人<%= f.radio_button :position, Evaluation::POSITION.index("部下なし"), :checked=>true %></label>
+					<label>部下1-2人<%= f.radio_button :position, Evaluation::POSITION.index("部下1-2人") %></label>
+					<label>部下3-5人<%= f.radio_button :position, Evaluation::POSITION.index("部下3-5人") %></label>
+					<label>部下6-10人<%= f.radio_button :position, Evaluation::POSITION.index("部下6-10人") %></label>
+					<label>部下11-20人<%= f.radio_button :position, Evaluation::POSITION.index("部下11-20人") %></label>
+					<label>部下20人以上<%= f.radio_button :position, Evaluation::POSITION.index("部下20人以上") %></label>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<%= f.label :post %>
+				</td>
+				<td>
+					<label>営業<%= f.radio_button :post, Evaluation::POST.index("営業"), :checked=>true %></label>
+					<label>総務<%= f.radio_button :post, Evaluation::POST.index("総務") %></label>
+					<label>経理<%= f.radio_button :post, Evaluation::POST.index("経理") %></label>
+					<label>法務<%= f.radio_button :post, Evaluation::POST.index("法務") %></label>
+					<label>技術<%= f.radio_button :post, Evaluation::POST.index("技術") %></label>
+					<label>その他<%= f.radio_button :post, Evaluation::POST.index("その他") %></label>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				<%= f.label :income %>
+				</td>
+				<td>
+					<label>200-300万<%= f.radio_button :income, Evaluation::INCOME.index("200-300万") %></label>
+					<label>300-350万<%= f.radio_button :income, Evaluation::INCOME.index("300-350万") %></label>
+					<label>350-400万<%= f.radio_button :income, Evaluation::INCOME.index("350-400万"), :checked=>true %></label>
+					<label>400-450万<%= f.radio_button :income, Evaluation::INCOME.index("400-450万") %></label>
+					<label>450-500万<%= f.radio_button :income, Evaluation::INCOME.index("450-500万") %></label>
+					<label>500-600万<%= f.radio_button :income, Evaluation::INCOME.index("500-600万") %></label>
+					<label>600-700万<%= f.radio_button :income, Evaluation::INCOME.index("600-700万") %></label>
+					<label>700万以上<%= f.radio_button :income, Evaluation::INCOME.index("700万") %></label>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<%= f.label :working_hours %>
+				</td>
+				<td>
+					<label>8時間<%= f.radio_button :working_hours, Evaluation::WORKING_HOURS.index("8時間"), :checked=>true %></label>
+					<label>9時間<%= f.radio_button :working_hours, Evaluation::WORKING_HOURS.index("9時間") %></label>
+					<label>10時間<%= f.radio_button :working_hours, Evaluation::WORKING_HOURS.index("10時間") %></label>
+					<label>11時間<%= f.radio_button :working_hours, Evaluation::WORKING_HOURS.index("11時間") %></label>
+					<label>12時間<%= f.radio_button :working_hours, Evaluation::WORKING_HOURS.index("12時間") %></label>
+					<label>13時間<%= f.radio_button :working_hours, Evaluation::WORKING_HOURS.index("13時間") %></label>
+					<label>14時間<%= f.radio_button :working_hours, Evaluation::WORKING_HOURS.index("14時間") %></label>
+					<label>15時間<%= f.radio_button :working_hours, Evaluation::WORKING_HOURS.index("15時間") %></label>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<%= f.label :holiday_days %>
+				</td>
+				<td>
+					<label>4日<%= f.radio_button :holiday_days, Evaluation::HOLIDAY_DAYS.index("4日") %></label>
+					<label>6日<%= f.radio_button :holiday_days, Evaluation::HOLIDAY_DAYS.index("6日") %></label>
+					<label>8日<%= f.radio_button :holiday_days, Evaluation::HOLIDAY_DAYS.index("8日"), :checked=>true %></label>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<%= f.label :overtime_pay %>
+				</td>
+				<td>
+					<label>なし<%= f.radio_button :overtime_pay, Evaluation::OVERTIME_PAY.index("なし") %></label>
+					<label>40時間以上であり<%= f.radio_button :overtime_pay, Evaluation::OVERTIME_PAY.index("40時間以上であり") %></label>
+					<label>常にあり<%= f.radio_button :overtime_pay, Evaluation::OVERTIME_PAY.index("常にあり"), :checked=>true %></label>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<%= f.label :illegality %>
+				</td>
+				<td>
+					<label>なし<%= f.radio_button :illegality, Evaluation::ILLEGALITY.index("なし"), :checked=>true %></label>
+					<label>問題にならないレベル<%= f.radio_button :illegality, Evaluation::ILLEGALITY.index("問題にならないレベル") %></label>
+					<label>問題あり<%= f.radio_button :illegality, Evaluation::ILLEGALITY.index("問題あり") %></label>
+					<label>危機的水準<%= f.radio_button :illegality, Evaluation::ILLEGALITY.index("危機的水準") %></label>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<%= f.label :interview_attitude %>
+				</td>
+				<td>
+					<label>悪い<%= f.radio_button :interview_attitude, Evaluation::INTERVIEW_ATTITUDE.index("悪い") %></label>
+					<label>普通<%= f.radio_button :interview_attitude, Evaluation::INTERVIEW_ATTITUDE.index("普通"), :checked=>true %></label>
+					<label>良い<%= f.radio_button :interview_attitude, Evaluation::INTERVIEW_ATTITUDE.index("良い") %></label>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<%= f.label :resume %>
+				</td>
+				<td>
+					<label>事前に読んでいない<%= f.radio_button :resume, Evaluation::RESUME.index("事前に読んでいない") %></label>
+					<label>読んでる<%= f.radio_button :resume, Evaluation::RESUME.index("読んでる"), :checked=>true %></label>
+					<label>よく読んでる<%= f.radio_button :resume, Evaluation::RESUME.index("よく読んでる") %></label>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<%= f.label :stress_interview %>
+				</td>
+				<td>
+					<label>普通の面接<%= f.radio_button :stress_interview, Evaluation::STRESS_INTERVIEW.index("普通の面接"), :checked=>true %></label>
+					<label>圧迫面接<%= f.radio_button :stress_interview, Evaluation::STRESS_INTERVIEW.index("圧迫面接") %></label>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<%= f.label :sexual_harassment %>
+				</td>
+				<td>
+					<label>セクハラなし<%= f.radio_button :sexual_harassment, Evaluation::SEXUAL_HARASSMENT.index("なし"), :checked=>true %></label>
+					<label>セクハラあり<%= f.radio_button :sexual_harassment, Evaluation::SEXUAL_HARASSMENT.index("あり") %></label>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<%= f.label :interviewer_count %>
+				</td>
+				<td>
+					<label>1回<%= f.radio_button :interviewer_count, Evaluation::INTERVIEWER_COUNT.index("1回") %></label>
+					<label>2回<%= f.radio_button :interviewer_count, Evaluation::INTERVIEWER_COUNT.index("2回"), :checked=>true %></label>
+					<label>3回<%= f.radio_button :interviewer_count, Evaluation::INTERVIEWER_COUNT.index("3回") %></label>
+					<label>4回<%= f.radio_button :interviewer_count, Evaluation::INTERVIEWER_COUNT.index("4回") %></label>
+					<label>5回<%= f.radio_button :interviewer_count, Evaluation::INTERVIEWER_COUNT.index("5回") %></label>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<%= f.label :promise %>
+				</td>
+				<td>
+					<label>守らない<%= f.radio_button :promise, Evaluation::PROMISE.index("守らない") %></label>
+					<label>守る<%= f.radio_button :promise, Evaluation::PROMISE.index("守る"), :checked=>true %></label>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<%= f.label :question1 %>
+				</td>
+				<td>
+					<%= f.text_field :question1,:class=>'span15' %>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<%= f.label :question2 %>
+				</td>
+				<td>
+					<%= f.text_field :question2,:class=>'span15' %>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<%= f.label :question3 %>
+				</td>
+				<td>
+					<%= f.text_field :question3,:class=>'span15' %>
+				</td>
+			</tr>
+		</table>
+			<input type="hidden" id="society_evaluation_company" name="society_evaluation[company_id]" value=<%= @company_id %> size="30" type="text" />
+		<div class="actions">
+			<%= f.submit "登録",:class=>'btn primary' %>
+		</div>
+<% end %>

@@ -1,0 +1,178 @@
+
+<h2>学生評価</h2>
+<% @student_evaluations.each do |evaluation| %>
+	<table class="zebra-striped">
+		<tr>
+			<td>年齢</td>
+			<td><%= @evaluation_age[0] %></td>
+			<td><%= evaluation.age1 %></td>
+			<td><%= @evaluation_age[1] %></td>
+			<td><%= evaluation.age2 %></td>
+			<td><%= @evaluation_age[2] %></td>
+			<td><%= evaluation.age3 %></td>
+			<td><%= @evaluation_age[3] %></td>
+			<td><%= evaluation.age4 %></td>
+			<td><%= @evaluation_age[4] %></td>
+			<td><%= evaluation.age5 %></td>
+			<td><%= @evaluation_age[5] %></td>
+			<td><%= evaluation.age6 %></td>
+			<td><%= @evaluation_age[6] %></td>
+			<td><%= evaluation.age7 %></td>
+			<td><%= @evaluation_age[7] %></td>
+			<td><%= evaluation.age8 %></td>
+			<td><%= @evaluation_age[8] %></td>
+			<td><%= evaluation.age9 %></td>
+		</tr>
+		<tr>
+			<td>違法行為</td>
+			<td><%= @evaluation_illegality[0] %></td>
+			<td><%= evaluation.illegality1 %></td>
+			<td><%= @evaluation_illegality[1] %></td>
+			<td><%= evaluation.illegality2 %></td>
+			<td><%= @evaluation_illegality[2] %></td>
+			<td><%= evaluation.illegality3 %></td>
+			<td><%= @evaluation_illegality[3] %></td>
+			<td><%= evaluation.illegality4 %></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>面接態度</td>
+			<td><%= @evaluation_interview_attitude[0] %></td>
+			<td><%= evaluation.interview_attitude1 %></td>
+			<td><%= @evaluation_interview_attitude[1] %></td>
+			<td><%= evaluation.interview_attitude2 %></td>
+			<td><%= @evaluation_interview_attitude[2] %></td>
+			<td><%= evaluation.interview_attitude3 %></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>履歴書</td>
+			<td><%= @evaluation_resume[0] %></td>
+			<td><%= evaluation.resume1 %></td>
+			<td><%= @evaluation_resume[1] %></td>
+			<td><%= evaluation.resume2 %></td>
+			<td><%= @evaluation_resume[2] %></td>
+			<td><%= evaluation.resume3 %></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>圧迫面接</td>
+			<td><%= @evaluation_stress_interview[0] %></td>
+			<td><%= evaluation.stress_interview1 %></td>
+			<td><%= @evaluation_stress_interview[1] %></td>
+			<td><%= evaluation.stress_interview2 %></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>セクハラ</td>
+			<td><%= @evaluation_sexual_harassment[0] %></td>
+			<td><%= evaluation.sexual_harassment1 %></td>
+			<td><%= @evaluation_sexual_harassment[1] %></td>
+			<td><%= evaluation.sexual_harassment2 %></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>面接回数</td>
+			<td><%= @evaluation_interviewer_count[0] %></td>
+			<td><%= evaluation.interviewer_count1 %></td>
+			<td><%= @evaluation_interviewer_count[1] %></td>
+			<td><%= evaluation.interviewer_count2 %></td>
+			<td><%= @evaluation_interviewer_count[2] %></td>
+			<td><%= evaluation.interviewer_count3 %></td>
+			<td><%= @evaluation_interviewer_count[3] %></td>
+			<td><%= evaluation.interviewer_count4 %></td>
+			<td><%= @evaluation_interviewer_count[4] %></td>
+			<td><%= evaluation.interviewer_count5 %></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>約束</td>
+			<td><%= @evaluation_promise[0] %></td>
+			<td><%= evaluation.promise1 %></td>
+			<td><%= @evaluation_promise[1] %></td>
+			<td><%= evaluation.promise2 %></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+	</table>
+<% end %>
+
+<%= link_to 'Back', companies_path %>
+<%= link_to '社会人評価', new_company_society_evaluation_path(@company.id) %>
+<%= link_to '学生評価', new_company_student_evaluation_path(@company.id) %>

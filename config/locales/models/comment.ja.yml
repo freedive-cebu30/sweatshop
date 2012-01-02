@@ -1,0 +1,9 @@
+ja:
+  activerecord:
+    models:
+      company: "会社"
+    attributes:
+      company:
+        name: "社名"
+        address: "住所"
+        url: "ホームページURL"
