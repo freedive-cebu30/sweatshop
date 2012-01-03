@@ -2478,3 +2478,28 @@ button.btn::-moz-focus-inner, input[type=submit].btn::-moz-focus-inner {
 .page.current{
 	display:none
 }
+.header {
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom:10px;
+	padding-top:20px;
+	width: 940px;
+	height:55px;
+	background-color:#dcdcdc;
+}
+
+.footer {
+	margin-left: auto;
+	margin-right: auto;
+	height:23px;
+	width: 940px;
+}
+.footer ul {
+	list-style-type:none;
+	text-align: right;
+}
+
+.footer li {
+	float:right;
+	margin-right:10px;
+}

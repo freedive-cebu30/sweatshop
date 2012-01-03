@@ -8,9 +8,17 @@
 <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
 </head>
 <body>
+<div class="header">
+	<h1><%= link_to 'ブラック企業DB', root_path %></h1>
+</div>
 <div class="container">
-	<h1><%= link_to 'ブラック企業DB', companies_path %></h1>
 	<%= yield %>
+</div>
+<div class="footer">
+	<ul>
+		<li>Copyright&copy; BlackCompany All Rights Reserved</li>
+		<li>連絡先 twitter:@blackcompany_jp</li>
+	</ul>
 </div>
 </body>
 </html>
