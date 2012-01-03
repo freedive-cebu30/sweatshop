@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
   before_filter :company, :only => ['new','index']
+  before_filter :cookie_confirm, :only => ['index']
 
   def index
     @comments = @company.comments
@@ -82,7 +83,7 @@ class CommentsController < ApplicationController
     end
   end
   
-  def company
+def company
     unless params[:company_id].blank?
       @company = Company.find(params[:company_id])
       @company_id = params[:company_id]
@@ -90,6 +91,16 @@ class CommentsController < ApplicationController
     else
       @company = Company.find(session[:company_id])
       @company_id = session[:company_id]
+    end
+  end
+  
+  def cookie_confirm
+    unless cookies[:society_evaluation].blank?
+      @society_evaluation_cookie = cookies[:society_evaluation].to_s.split(":")
+    end
+    
+    unless cookies[:student_evaluation].blank?
+      @student_evaluation_cookie = cookies[:student_evaluation].to_s.split(":")
     end
   end
 
