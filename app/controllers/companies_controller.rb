@@ -2,7 +2,7 @@ class CompaniesController < ApplicationController
   before_filter :evaluation_attribute, :only => ['show']
   
   def index
-    @search = Company.search(params[:search])
+    @search = Company.order(:name).search(params[:search])
     @companies = @search.page(params[:page]).per(params[:per])
 
     respond_to do |format|
