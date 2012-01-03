@@ -1,7 +1,8 @@
 class StudentEvaluationsController < ApplicationController
   before_filter :evaluation_attribute, :only => ['index']
-  before_filter :company, :only => ['index']
-  
+  before_filter :company, :only => ['index','new','create']
+  before_filter :cookie_confirm, :only => ['index']
+
   def index
     @student_evaluations = @company.student_evaluations.group(:company_id)
                             .group(:company_id)
@@ -47,7 +48,6 @@ class StudentEvaluationsController < ApplicationController
   
   def new
     @company_id = params[:company_id]
-    @company = Company.find_by_id @company_id
     @evaluation = StudentEvaluation.new
     respond_to do |format|
       format.html # new.html.erb
@@ -57,7 +57,12 @@ class StudentEvaluationsController < ApplicationController
 
   def create
     @evaluation = StudentEvaluation.new(params[:student_evaluation])
-    company
+    if cookies[:student_evaluation].blank?
+      company_ids = @evaluation.company_id.to_s
+    else
+      company_ids = cookies[:student_evaluation].to_s+":"+@evaluation.company_id.to_s
+    end
+    cookies[:student_evaluation] = {:value => company_ids,:expires => 6.months.from_now,:http_only => true}
     respond_to do |format|
       if @evaluation.save
         format.html { redirect_to :action => "index",:controller => "student_evaluations" }
@@ -90,9 +95,21 @@ class StudentEvaluationsController < ApplicationController
   def company
     unless params[:company_id].blank?
       @company = Company.find(params[:company_id])
+      @company_id = params[:company_id]
       session[:company_id] = params[:company_id]
     else
       @company = Company.find(session[:company_id])
+      @company_id = session[:company_id]
+    end
+  end
+  
+  def cookie_confirm
+    unless cookies[:society_evaluation].blank?
+      @society_evaluation_cookie = cookies[:society_evaluation].to_s.split(":")
+    end
+    
+    unless cookies[:student_evaluation].blank?
+      @student_evaluation_cookie = cookies[:student_evaluation].to_s.split(":")
     end
   end
 

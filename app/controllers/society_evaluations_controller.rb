@@ -1,6 +1,7 @@
 class SocietyEvaluationsController < ApplicationController
   before_filter :evaluation_attribute, :only => ['index']
-  before_filter :company, :only => ['index','new']
+  before_filter :company, :only => ['index','new','create']
+  before_filter :cookie_confirm, :only => ['index']
   
   def index
     @society_evaluations = @company.society_evaluations
@@ -79,7 +80,7 @@ class SocietyEvaluationsController < ApplicationController
                         .where('question1 <> \'\' OR question2 <> \'\' OR question3 <> \'\' ' )
 
     respond_to do |format|
-      format.html # show.html.erb
+      format.html
     end
   end
   
@@ -94,7 +95,13 @@ class SocietyEvaluationsController < ApplicationController
 
   def create
     @evaluation = SocietyEvaluation.new(params[:society_evaluation])
-    company
+    if cookies[:society_evaluation].blank?
+      company_ids = @evaluation.company_id.to_s
+    else
+      company_ids = cookies[:society_evaluation].to_s+":"+@evaluation.company_id.to_s
+    end
+    
+    cookies[:society_evaluation] = {:value => company_ids,:expires => 6.months.from_now,:http_only => true}
     respond_to do |format|
       if @evaluation.save
         format.html { redirect_to :action => "index",:controller => "society_evaluations" }
@@ -132,6 +139,16 @@ class SocietyEvaluationsController < ApplicationController
     else
       @company = Company.find(session[:company_id])
       @company_id = session[:company_id]
+    end
+  end
+  
+  def cookie_confirm
+    unless cookies[:society_evaluation].blank?
+      @society_evaluation_cookie = cookies[:society_evaluation].to_s.split(":")
+    end
+    
+    unless cookies[:student_evaluation].blank?
+      @student_evaluation_cookie = cookies[:student_evaluation].to_s.split(":")
     end
   end
 
