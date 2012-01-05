@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120103224718) do
+ActiveRecord::Schema.define(:version => 20120105151222) do
 
   create_table "comments", :force => true do |t|
     t.integer  "company_id"
@@ -58,6 +58,7 @@ ActiveRecord::Schema.define(:version => 20120103224718) do
     t.boolean  "deleted"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "thought"
   end
 
   add_index "evaluations", ["company_id"], :name => "index_evaluations_on_company_id"

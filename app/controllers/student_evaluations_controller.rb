@@ -40,6 +40,9 @@ class StudentEvaluationsController < ApplicationController
     @questions = @company.student_evaluations
                         .select('question1,question2,question3')
                         .where('question1 <> \'\' OR question2 <> \'\' OR question3 <> \'\' ' )
+    @thoughts = @company.student_evaluations
+                        .select('thought')
+                        .where('thought <> \'\' AND thought IS NOT NULL')
 
     respond_to do |format|
       format.html # show.html.erb

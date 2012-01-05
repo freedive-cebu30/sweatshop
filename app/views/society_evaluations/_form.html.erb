@@ -106,6 +106,7 @@
 					<%= f.label :holiday_days %>
 				</td>
 				<td>
+					<label>3日以下<%= f.radio_button :holiday_days, Evaluation::HOLIDAY_DAYS.index("3日以下") %></label>
 					<label>4日<%= f.radio_button :holiday_days, Evaluation::HOLIDAY_DAYS.index("4日") %></label>
 					<label>6日<%= f.radio_button :holiday_days, Evaluation::HOLIDAY_DAYS.index("6日") %></label>
 					<label>8日<%= f.radio_button :holiday_days, Evaluation::HOLIDAY_DAYS.index("8日"), :checked=>true %></label>
@@ -193,10 +194,18 @@
 			</tr>
 			<tr>
 				<td>
+					<%= f.label :thought %>
+				</td>
+				<td>
+					<%= f.text_area :thought,{:cols => 10, :rows=> 5,:class=>'span15'} %>
+				</td>
+			</tr>
+			<tr>
+				<td>
 					<%= f.label :question1 %>
 				</td>
 				<td>
-					<%= f.text_field :question1,:class=>'span15' %>
+					<%= f.text_field :question1, :class=>'span15'%>
 				</td>
 			</tr>
 			<tr>

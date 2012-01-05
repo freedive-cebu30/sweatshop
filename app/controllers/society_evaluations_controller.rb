@@ -51,6 +51,7 @@ class SocietyEvaluationsController < ApplicationController
                             .select('SUM(CASE WHEN holiday_days=0 THEN 1 ELSE 0 END) as holiday_days1')
                             .select('SUM(CASE WHEN holiday_days=1 THEN 1 ELSE 0 END) as holiday_days2')
                             .select('SUM(CASE WHEN holiday_days=2 THEN 1 ELSE 0 END) as holiday_days3')
+                            .select('SUM(CASE WHEN holiday_days=3 THEN 1 ELSE 0 END) as holiday_days4')
                             .select('SUM(CASE WHEN overtime_pay=0 THEN 1 ELSE 0 END) as overtime_pay1')
                             .select('SUM(CASE WHEN overtime_pay=1 THEN 1 ELSE 0 END) as overtime_pay2')
                             .select('SUM(CASE WHEN overtime_pay=2 THEN 1 ELSE 0 END) as overtime_pay3')
@@ -78,6 +79,9 @@ class SocietyEvaluationsController < ApplicationController
     @questions = @company.society_evaluations
                         .select('question1,question2,question3')
                         .where('question1 <> \'\' OR question2 <> \'\' OR question3 <> \'\' ' )
+    @thoughts = @company.society_evaluations
+                        .select('thought')
+                        .where('thought <> \'\' AND thought IS NOT NULL')
 
     respond_to do |format|
       format.html

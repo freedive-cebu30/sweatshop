@@ -198,6 +198,15 @@
 		</tr>
 	</table>
 <% end %>
+<h3>企業の評価</h3>
+<table class="zebra-striped">
+<% @thoughts.each do |thought| %>
+	<table class="zebra-striped">
+		<tr>
+			<td><%= thought.thought %></td>
+		</tr>
+	</table>
+<% end %>
 <h3>企業からの質問</h3>
 <table class="zebra-striped">
 	<% @questions.each do |question| %>

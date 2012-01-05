@@ -183,8 +183,8 @@
 			<td><%= evaluation.holiday_days2 %></td>
 			<td><%= @evaluation_holiday_days[2] %></td>
 			<td><%= evaluation.holiday_days3 %></td>
-			<td></td>
-			<td></td>
+			<td><%= @evaluation_holiday_days[3] %></td>
+			<td><%= evaluation.holiday_days4 %></td>
 			<td></td>
 			<td></td>
 			<td></td>
@@ -363,6 +363,15 @@
 			<td></td>
 			<td></td>
 			<td></td>
+		</tr>
+	</table>
+<% end %>
+<h3>企業の評価</h3>
+<table class="zebra-striped">
+<% @thoughts.each do |thought| %>
+	<table class="zebra-striped">
+		<tr>
+			<td><%= thought.thought %></td>
 		</tr>
 	</table>
 <% end %>
