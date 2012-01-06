@@ -30,24 +30,18 @@
     <td><%= company.address %></td>
     <td><a href="<%= company.url %>" target=_blank><%= company.url %></a></td>
     <td><%= link_to '詳細', company_society_evaluations_path(company.id) %></td>
-    <td><input type="button" value="削除" onclick="javascript:deleteSubmit('<%= company.id %>')">
+    <!--td><input type="button" value="削除" onclick="javascript:deleteSubmit('company.id')"-->
   </tr>
 <% end %>
 </table>
 </form>
 <script type="text/javascript">
-	/*val deleteSubmit = function(id){
-		val val;
-		val=document.getElementById('company_search');
-		val.method='post';
-		val.action='companyies'+id;
-		val.submit();
-	}*/
-	
+/*	
 	function deleteSubmit(id){
 		var frm=document.getElementById("delete");
 		frm.method="POST";
 		frm.action="companies/destroy/"+id;
 		frm.submit();
 	}
+*/
 </script>

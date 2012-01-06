@@ -4,20 +4,13 @@ Sweatshop::Application.routes.draw do
   resources :society_evaluations
   resources :student_evaluations
 
-  post "companies/destroy/:id" => "companies#destroy"
+  #post "companies/destroy/:id" => "companies#destroy"
   resources :companies do
     resources :comments
 
     resources :society_evaluations, :only => ['index','new','create']
     resources :student_evaluations, :only => ['index','new','create']
   end
-  
-      
-      
-      
-      
-      
-      
   
   #post "society_evaluations" => "evaluations#create"
   #post "student_evaluations" => "evaluations#create"
