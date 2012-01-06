@@ -145,6 +145,16 @@ class CompaniesController < ApplicationController
   # POST /companies
   # POST /companies.xml
   def create
+    param = params[:company]
+    params[:company].each do |key,value|
+      unless value.blank?
+        val = value.strip
+        param[key] = val
+      else
+        param[key] = value
+      end
+    end
+    params[:company] = param
     @company = Company.new(params[:company])
 
     respond_to do |format|
