@@ -10,6 +10,7 @@ gem 'therubyracer-heroku'
 gem 'meta_search'
 gem 'kaminari'
 gem 'simple_form'
+gem 'twitter'
 
 # Use unicorn as the web server
 # gem 'unicorn'
