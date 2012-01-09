@@ -203,7 +203,7 @@
 <% @thoughts.each do |thought| %>
 	<table class="zebra-striped">
 		<tr>
-			<td><%= thought.thought %></td>
+			<td><%= simple_format(thought.thought) %></td>
 		</tr>
 	</table>
 <% end %>
