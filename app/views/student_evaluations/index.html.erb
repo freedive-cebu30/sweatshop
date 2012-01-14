@@ -8,10 +8,10 @@
 <% end %>
 <% unless @student_evaluation_cookie.blank? %>
 	<% unless @student_evaluation_cookie.include? @company.id.to_s %>
-		<%= link_to '学生評価をする', new_company_student_evaluation_path(@company.id),:class=>'btn large success' %>
+		<%= link_to '面接評価をする', new_company_student_evaluation_path(@company.id),:class=>'btn large success' %>
 	<% end %>
 <% else %>
-	<%= link_to '学生評価をする', new_company_student_evaluation_path(@company.id),:class=>'btn large success' %>
+	<%= link_to '面接評価をする', new_company_student_evaluation_path(@company.id),:class=>'btn large success' %>
 <% end %>
 <%= link_to 'コメントをする', new_company_comment_path(@company.id),:class=>'btn large info' %>
 <ul class="tabs">
@@ -19,13 +19,13 @@
 		<%= link_to '社会人評価', company_society_evaluations_path(@company.id),:class=>'btn default' %>
 	</li>
 	<li>
-		<%= link_to '学生評価', company_student_evaluations_path(@company.id),:class=>'btn default' %>
+		<%= link_to '面接評価', company_student_evaluations_path(@company.id),:class=>'btn default' %>
 	</li>
 	<li>
 		<%= link_to 'コメント', company_comments_path(@company.id),:class=>'btn default' %>
 	</li>
 </ul>
-<h3>学生評価</h3>
+<h3>面接評価</h3>
 <% @student_evaluations.each do |evaluation| %>
 	<table class="zebra-striped">
 		<tr>
@@ -203,7 +203,7 @@
 <% @thoughts.each do |thought| %>
 	<table class="zebra-striped">
 		<tr>
-			<td><%= thought.thought %></td>
+			<td><%= simple_format(thought.thought) %></td>
 		</tr>
 	</table>
 <% end %>
