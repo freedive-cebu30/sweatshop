@@ -26,11 +26,12 @@
 	</li>
 </ul>
 <h3>コメント</h3>
+<% i = 1 %>
 <% @comments.each do |comment| %>
 	<table class="zebra-striped">
 		<tr>
 			<td>
-				<%= comment.id %>
+				<%= i %>
         :
 				<%= comment.name %>
 			</td>
@@ -41,4 +42,5 @@
 			</td>
 		</tr>
 	</table>
+<% i = i + 1 %>
 <% end %>
