@@ -11,11 +11,11 @@
 	<div class="row">
 		<div class="clearfix">
 			<%= f.label :name ,:class=> "span1" %>
-			<%= f.text_field :name ,:class=> "span6" %>
+			<%= f.text_field :name ,:class => "span6",:value => "名無しさん" %>
 		</div>
 		<div class="clearfix">
 			<%= f.label :description ,:class=> "span1" %>
-			<%= f.text_area :description ,{:cols => 20,:rows=> 10,:class=> "span6"} %>
+			<%= f.text_area :description ,{:cols => 20,:rows => 10,:class => "span6"} %>
 		</div>
 	</div>
   <input type="hidden" name="comment[company_id]" value=<%= @company_id %> size="30" type="text" />
