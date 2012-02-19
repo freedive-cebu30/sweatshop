@@ -26,11 +26,9 @@
 <form method="action" action="POST" id="delete">
 <% @companies.each do |company| %>
   <tr>
-    <td><%= company.name %></td>
+    <td><%= link_to company.name,company_society_evaluations_path(company.id) %></td>
     <td><%= company.address %></td>
     <td><a href="<%= company.url %>" target=_blank><%= company.url %></a></td>
-    <td><%= link_to '詳細', company_society_evaluations_path(company.id) %></td>
-    <!--td><input type="button" value="削除" onclick="javascript:deleteSubmit('company.id')"-->
   </tr>
 <% end %>
 </table>
